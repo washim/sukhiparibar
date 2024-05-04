@@ -1,0 +1,24 @@
+services:
+  dev:
+    build: .
+    platform: linux/amd64
+    image: sukhiparibar
+    container_name: sukhi_dev
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/app
+
+  prod:
+    build:
+      context: .
+      dockerfile: ./production.Dockerfile
+    platform: linux/amd64
+    image: 860297550696.dkr.ecr.ap-south-1.amazonaws.com/sukhiparibar
+    container_name: sukhi_prod
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./database:/app/sukhiparibar/database
+    environment:
+      - ENV_NAME=PROD
