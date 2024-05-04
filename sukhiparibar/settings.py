@@ -131,6 +131,7 @@ USE_L10N = True
 USE_TZ = False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 if os.environ.get("ENV_NAME") == 'PROD':
     SECRET_KEY = "ibms(9v1k=pr0uz@^$d@=^&x5l8$#4ou5$p(cc%dmj#w0pc0p_"
