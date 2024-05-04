@@ -1,5 +1,5 @@
 FROM python:latest
-RUN useradd ec2-user
+RUN useradd gitpod
 EXPOSE 8001
 ENV PYTHONUNBUFFERED=1 \
     PORT=8001
@@ -17,7 +17,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
 WORKDIR /app
-RUN chown ec2-user:ec2-user /app
-COPY --chown=ec2-user:ec2-user . .
-USER ec2-user
+RUN chown gitpod:gitpod /app
+COPY --chown=gitpod:gitpod . .
+USER gitpod
 CMD python manage.py runserver 0.0.0.0:8001
